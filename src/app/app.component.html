@@ -1,0 +1,36 @@
+<div class="quiz-container" id="quiz">
+    <section *ngIf="!showResult">
+        <div class="quiz-header">
+            <h2 id="question">{{ questionText }}</h2>
+            <ul>
+                <li>
+                    <input #ans1 type="radio" name="anser" id="a" class="answer" (click)="submitAnswer('a')">
+                    <label for="a" id="a_text">{{ answer1 }}</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="anser" id="b" class="answer" (click)="submitAnswer('b')">
+                    <label for="b" id="b_text">{{ answer2 }}</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="anser" id="c" class="answer" (click)="submitAnswer('c')">
+                    <label for="c" id="c_text">{{ answer3 }}</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="anser" id="d" class="answer" (click)="submitAnswer('d')">
+                    <label for="d" id="d_text">{{ answer4 }}</label>
+                </li>
+            </ul>
+        </div>
+
+        <button id="submit" (click)="submitButtonClickHandler()">Submit</button>
+    </section>
+
+    <section *ngIf="showResult">
+        <h2>You answered {{ score }} / {{ quizLength }} questions correctly </h2>
+
+        <button onclick="location.reload()">Reload</button>
+    </section>
+</div>
